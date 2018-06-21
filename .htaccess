@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+
+ErrorDocument 404 /404
+Options -MultiViews
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ 404.php [L]
+
+
+
+RewriteRule ^404$ 404.php [L]
+RewriteRule ^home$ index.php [L]
+RewriteRule ^Home$ index.php [L]
+RewriteRule ^search$ search.php [L]
+RewriteRule ^cpanel cpanel [L]
+RewriteRule ^newsdetail/([0-9]+)/(.*)$ post-standart.php?id=$1&name=$2 [L]
+RewriteRule ^category/([0-9]+)/(.*)$ category.php?cid=$1&name=$2 [L]  
+RewriteRule ^subcategory/([0-9]+)/([0-9]+)$ subcategory.php?cid=$1&scid=$2 [L]
+RewriteRule ^News/([0-9_\-]+)/([0-9_\-]+)/([0-9_\-]+)/(.*)$ news-article-details.php?pid=$1&spid=$2&aid=$3&newshead=$4 [L]
+RewriteRule ^Page/([0-9_\-]+)/([0-9_\-]+)/(.*)$ news-listing.php?pid=$1&spid=$2&page=$3 [L]
+
+</IfModule>
